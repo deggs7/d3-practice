@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    app: ['./src/app.js']
+    app: ['./src/entry.js']
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -13,12 +13,16 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /.\css$/,
-        loader: 'style!css'
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
+        test: /\.less$/,
+        loader: "style!css!less"
       }
     ]
   },
   devServer: {
-    contentBase: './build'
+    // contentBase: './build'
   }
 }
